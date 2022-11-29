@@ -14,8 +14,124 @@ ifdef::backend-html5[]
 // print the toc here (not at the default position)
 //toc::[]
 
-== Header 1
+== Quarkus
+=== Allgemeines
+Quarkus ist ein *"Supersonic Subatomic Java"*
+Toolkit, Framework, Runtime Server.
+
+Supersonic:
+
+Quarkus erstellt extrem und schnell executables für alle Plattformen.
+Quarkus läuft
+
+Subatomic:
+
+Wie ein Atom. Executables sind viel kleiner als mit anderern Framework.
+
+Developer Joy
+
+* Hot reload: Update a Java file or resource and Quarkus is reloaded
+* No need to stop and restart
+* Development vs production mode
+* Unified configuration
+* Integration wit IDE
+* Debugging
+
+Hauptgrund für Quarkus:
+
+*Quarkus is Java for the cloud*
+
+Früher war Java für langlebige Runtimes ausgelegt. Heute ist es jedoch wichtig schnelle Laufzeiten
+auf unzähligen Microservices die verknüpft sind zu erreichen.
+
+=== Projekt starten
+
+Möglichkeiten:
+
+* Maven-Plugin
+** mit maven-Plugin über die bash
+* Quarkus.io
+** auf der Website https://code.quarkus.io[code.quarkus.io]
+* Intelij Plugin
+** mit internem Intelij-Plugin
+* Jhipster.tech
+** für komplexerer Anwendungen (muss ich noch testen)
 
 
-=== Header 2
+==== Mit Maven-Plugin
+
+Parameter mitgeben
+[source, shell]
+----
+mvn -U io.quarkus:quarkus-maven-plugin:create \
+-DprojectGroupId=org.agoncal.quarkus.starting \
+-DprojectArtifactId=rest-book \
+-DclassName="org.agoncal.quarkus.starting.BookResource"
+-Dpath "/api/books"
+-Dextenstions="resteasy-jsonb"
+----
+Struktur:
+
+image::maven.png[500, maven]
+
+Erweiterungen: (pom.xml)
+
+image::extensions.png[500, extensions]
+
+==== Starten des Servers
+
+*Development-Mode:*
+
+Maven installiert:
+
+[source, shell]
+----
+mvn quarkus:dev
+----
+
+Maven nicht installiert (=Maven-Wrapper):
+[source, shell]
+----
+./mvnw quarkus:dev
+----
+
+*Executing and Testing:*
+
+Maven installiert:
+[source, shell]
+----
+mvn quarkus:test
+----
+
+Maven nicht installiert:
+[source, shell]
+----
+./mvnw test
+----
+
+Ausführungs- und Testmodus können zur selben Zeit gestartet werden. Ports(dev=8080, test=8081)
+
+==== JAX-RS
+
+steht für JAVA API for RESTful Web Services.
+
+* setzt (=exposed) REST Web Services aus
+* konsumierern (=consuming) von REST Web Services
+
+basiert auf RESTEasy
+
+image::jax-rs.png[500, jax-rs]
+
+
+
+
+
+
+
+
+
+
+
+
+== Theorie
 
